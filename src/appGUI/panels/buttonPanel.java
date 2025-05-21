@@ -3,8 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class LeftPanel extends JPanel {
-    public LeftPanel(JPanel contentPanel, CardLayout cardLayout) {
+public class buttonPanel extends JPanel {
+    public buttonPanel(JPanel contentPanel, CardLayout cardLayout) {
         setBackground(Color.WHITE);
         setPreferredSize(new Dimension(100, 0));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS)); // Vertical layout for buttons
@@ -13,15 +13,12 @@ public class LeftPanel extends JPanel {
         ImageIcon rawBasicStatsIcon = scaleIcon("src/icons/basicICON.png", 80, 80);
         ImageIcon paddedBasicStatsIcon = padIconCenter(rawBasicStatsIcon, 100, 100); // centered
         ImageIcon basicStatsRolloverIcon = scaleIcon("src/icons/basicICON.png", 100, 100);
-        ImageIcon anovaIcon = scaleIcon("src/icons/anovaICON.png", 80, 80);
-        ImageIcon paddedAnovaIcon = padIconCenter(anovaIcon, 100, 100); // centered
-        ImageIcon AnovaRolloverIcon = scaleIcon("src/icons/anovaICON.png", 100, 100);
+     
 
         // Create buttons with icons only (no text)
         JButton basicStatsButton = new JButton(paddedBasicStatsIcon);
         basicStatsButton.setRolloverIcon(basicStatsRolloverIcon);
-        JButton testsButton = new JButton(paddedAnovaIcon);
-        testsButton.setRolloverIcon(AnovaRolloverIcon);
+        
 
         // Set same size for all buttons
         Dimension buttonSize = new Dimension(100, 100);
@@ -29,37 +26,23 @@ public class LeftPanel extends JPanel {
         basicStatsButton.setMinimumSize(buttonSize);
         basicStatsButton.setPreferredSize(buttonSize);
 
-        testsButton.setMaximumSize(buttonSize);
-        testsButton.setMinimumSize(buttonSize);
-        testsButton.setPreferredSize(buttonSize);
-
         // Remove button borders and backgrounds for a flat icon look
         basicStatsButton.setBorderPainted(false);
         basicStatsButton.setFocusPainted(false);
         basicStatsButton.setContentAreaFilled(false);
-
-        testsButton.setBorderPainted(false);
-        testsButton.setFocusPainted(false);
-        testsButton.setContentAreaFilled(false);
 
         // Center buttons horizontally
         basicStatsButton.setHorizontalAlignment(SwingConstants.CENTER);
         basicStatsButton.setVerticalAlignment(SwingConstants.CENTER);
         basicStatsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        testsButton.setHorizontalAlignment(SwingConstants.CENTER);
-        testsButton.setVerticalAlignment(SwingConstants.CENTER);
-        testsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         add(Box.createVerticalGlue());
         add(basicStatsButton);
-        add(Box.createRigidArea(new Dimension(0, 10)));
-        add(testsButton);
         add(Box.createVerticalGlue());
 
         // Button actions
         basicStatsButton.addActionListener(e -> cardLayout.show(contentPanel, "basicStats"));
-        testsButton.addActionListener(e -> cardLayout.show(contentPanel, "anova"));
     }
 
     // Helper method to scale an icon

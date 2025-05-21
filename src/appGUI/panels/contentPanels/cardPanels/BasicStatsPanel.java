@@ -2,6 +2,7 @@ package appGUI.panels.contentPanels.cardPanels;
 import javax.swing.*;
 import java.awt.*;
 
+import appGUI.panels.contentPanels.anovaPanels.InputPanel;
 import appGUI.panels.contentPanels.basicStatsPanels.*;
 
 public class BasicStatsPanel extends JPanel {

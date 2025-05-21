@@ -1,7 +1,8 @@
 package appGUI.frame;
 import javax.swing.*;
 import java.awt.*;
-import appGUI.panels.LeftPanel;
+import appGUI.panels.buttonPanel;
+import appGUI.panels.contentPanels.cardPanels.AnovaPanel;
 import appGUI.panels.contentPanels.cardPanels.BasicStatsPanel;
 
 public class MainGUI extends JPanel {
@@ -20,10 +21,9 @@ public class MainGUI extends JPanel {
         rightPanel = new JPanel(cardLayout);
 
         rightPanel.add(new BasicStatsPanel(), "basicStats");
-        rightPanel.add(new JPanel(), "anova"); // Replace with new AnovaPanel() when you have it
-        rightPanel.add(new JPanel(), "regression"); // Replace with new RegressionPanel() when you have it
+        rightPanel.add(new AnovaPanel(), "anova"); 
 
-        leftPanel = new LeftPanel(rightPanel, cardLayout);
+        leftPanel = new buttonPanel(rightPanel, cardLayout);
     }
 
     public void setupLayout() {

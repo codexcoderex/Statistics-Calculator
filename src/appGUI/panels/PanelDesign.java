@@ -3,8 +3,8 @@ package appGUI.panels;
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelDesigns extends JPanel {
-    public PanelDesigns() {
+public class PanelDesign extends JPanel {
+    public PanelDesign() {
         setOpaque(false);
     }
 
@@ -12,7 +12,7 @@ public class PanelDesigns extends JPanel {
     protected void paintComponent(Graphics g) {
         int arc = 30;
         int shadowOffset = 2;
-        int shadowAlpha = 70; // 0-255, lower is more transparent
+        int shadowAlpha = 55; // 0-255, lower is more transparent
 
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

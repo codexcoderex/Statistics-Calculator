@@ -1,11 +1,11 @@
 package appGUI.panels.contentPanels.basicStatsPanels;
-import appGUI.panels.PanelDesigns;
+import appGUI.panels.PanelDesign;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class SampleRangePanel extends PanelDesigns {
-    JLabel labelData;
+public class SampleRangePanel extends PanelDesign {
+    private JLabel labelData;
 
     public SampleRangePanel() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

@@ -1,5 +1,5 @@
 package appGUI.panels.contentPanels.basicStatsPanels;
-import appGUI.panels.PanelDesigns;
+import appGUI.panels.PanelDesign;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +21,7 @@ public class VariabilityPanel extends JPanel {
         };
 
         for (int i = 0; i < 4; i++) {
-            PanelDesigns subPanel = new PanelDesigns();
+            PanelDesign subPanel = new PanelDesign();
             subPanel.setBackground(new Color(0xE3F2FD));
             subPanel.setLayout(new BorderLayout());
             

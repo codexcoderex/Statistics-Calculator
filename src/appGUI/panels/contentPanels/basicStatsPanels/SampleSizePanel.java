@@ -1,10 +1,10 @@
 package appGUI.panels.contentPanels.basicStatsPanels;
-import appGUI.panels.PanelDesigns;
+import appGUI.panels.PanelDesign;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class SampleSizePanel extends PanelDesigns {
+public class SampleSizePanel extends PanelDesign {
     private JLabel labelData;
 
     public SampleSizePanel() {

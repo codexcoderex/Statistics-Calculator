@@ -1,10 +1,10 @@
 package appGUI.panels.contentPanels.basicStatsPanels;
-import appGUI.panels.PanelDesigns;
+import appGUI.panels.PanelDesign;
 
 import java.awt.*;
 import java.util.Arrays;
 
-public class GraphPanel extends PanelDesigns {
+public class GraphPanel extends PanelDesign {
     private double[] rawData = new double[0];
 
     public GraphPanel() {

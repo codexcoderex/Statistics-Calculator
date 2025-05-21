@@ -1,10 +1,10 @@
 package appGUI.panels.contentPanels.basicStatsPanels;
-import appGUI.panels.PanelDesigns;
+import appGUI.panels.PanelDesign;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class InputPanel extends PanelDesigns {
+public class InputPanel extends PanelDesign {
 
     private JTextArea inputArea;
 

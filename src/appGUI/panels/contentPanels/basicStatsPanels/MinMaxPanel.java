@@ -1,5 +1,5 @@
 package appGUI.panels.contentPanels.basicStatsPanels;
-import appGUI.panels.PanelDesigns;
+import appGUI.panels.PanelDesign;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +17,7 @@ public class MinMaxPanel extends JPanel {
         JLabel[] dataLabels = new JLabel[2];
 
         for (int i = 0; i < 2; i++) {
-            PanelDesigns panel = new PanelDesigns();
+            PanelDesign panel = new PanelDesign();
             panel.setBackground(new Color(0xE3F2FD));
             panel.setLayout(new GridBagLayout());
 
