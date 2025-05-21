@@ -2,7 +2,6 @@ package appGUI.frame;
 import javax.swing.*;
 import java.awt.*;
 import appGUI.panels.buttonPanel;
-import appGUI.panels.contentPanels.cardPanels.AnovaPanel;
 import appGUI.panels.contentPanels.cardPanels.BasicStatsPanel;
 
 public class MainGUI extends JPanel {
@@ -21,7 +20,6 @@ public class MainGUI extends JPanel {
         rightPanel = new JPanel(cardLayout);
 
         rightPanel.add(new BasicStatsPanel(), "basicStats");
-        rightPanel.add(new AnovaPanel(), "anova"); 
 
         leftPanel = new buttonPanel(rightPanel, cardLayout);
     }
