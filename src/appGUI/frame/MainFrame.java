@@ -15,7 +15,7 @@ public class MainFrame {
         
 
         // Set frame size and make it visible
-        frame.setSize(1366, 740);
+        frame.setSize(1920, 1080);
         frame.setLocationRelativeTo(null); // Center the window, it is relative to the screen
         frame.setVisible(true);
         frame.setResizable(false);

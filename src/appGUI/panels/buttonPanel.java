@@ -13,8 +13,7 @@ public class buttonPanel extends JPanel {
         ImageIcon rawBasicStatsIcon = scaleIcon("src/icons/basicICON.png", 80, 80);
         ImageIcon paddedBasicStatsIcon = padIconCenter(rawBasicStatsIcon, 100, 100); // centered
         ImageIcon basicStatsRolloverIcon = scaleIcon("src/icons/basicICON.png", 100, 100);
-     
-
+        
         // Create buttons with icons only (no text)
         JButton basicStatsButton = new JButton(paddedBasicStatsIcon);
         basicStatsButton.setRolloverIcon(basicStatsRolloverIcon);
@@ -36,13 +35,14 @@ public class buttonPanel extends JPanel {
         basicStatsButton.setVerticalAlignment(SwingConstants.CENTER);
         basicStatsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-
+       
         add(Box.createVerticalGlue());
         add(basicStatsButton);
         add(Box.createVerticalGlue());
 
         // Button actions
         basicStatsButton.addActionListener(e -> cardLayout.show(contentPanel, "basicStats"));
+       
     }
 
     // Helper method to scale an icon

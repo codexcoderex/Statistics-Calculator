@@ -16,10 +16,9 @@ public class GraphPanel extends PanelDesign {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        // Always use a fixed graph area
         int width = 650;
         int height = 400;
-        int leftPad = 50, rightPad = 50, topPad = 40, bottomPad = 40;
+        int leftPad = 40, rightPad = 0, topPad = 40, bottomPad = 40;
         int graphWidth = width - leftPad - rightPad;
         int graphHeight = height - topPad - bottomPad;
 
@@ -36,17 +35,20 @@ public class GraphPanel extends PanelDesign {
             return;
         }
 
-        // Histogram bins
-        int binCount = 8;
-        double min = Arrays.stream(rawData).min().orElse(0);
-        double max = Arrays.stream(rawData).max().orElse(0);
-        if (min == max) max = min + 1; // Avoid division by zero
-        double binSize = (max - min) / binCount;
+        double binSize = 5.0;
+        double min = Math.floor(Arrays.stream(rawData).min().orElse(0) / binSize) * binSize;
+        double max = Math.ceil(Arrays.stream(rawData).max().orElse(0) / binSize) * binSize;
+        if (max == min) {
+            max = min + binSize;
+        }
+        int binCount = Math.max(1, (int) ((max - min) / binSize));
+
         int[] counts = new int[binCount];
 
         for (double value : rawData) {
             int bin = (int) ((value - min) / binSize);
-            if (bin == binCount) bin--; // include max value in last bin
+            if (bin < 0) bin = 0;
+            if (bin >= binCount) bin = binCount - 1;
             counts[bin]++;
         }
 
@@ -64,7 +66,9 @@ public class GraphPanel extends PanelDesign {
 
             // Draw bin label
             g2.setColor(Color.BLACK);
-            String label = String.format("%.1f", min + i * binSize);
+            int binStart = (int) (min + i * binSize);
+            int binEnd = (int) (binStart + binSize);
+            String label = String.format("%d–%d", binStart, binEnd);
             FontMetrics fm = g2.getFontMetrics();
             int labelWidth = fm.stringWidth(label);
             g2.drawString(label, x + (barWidth - 8 - labelWidth) / 2, height - bottomPad + 18);

@@ -3,6 +3,7 @@ import appGUI.panels.PanelDesign;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 public class InputPanel extends PanelDesign {
 
@@ -68,7 +69,7 @@ public class InputPanel extends PanelDesign {
         errorPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 35, 0));
         errorPanel.setOpaque(false); // keep it transparent
 
-        JLabel errorLabel = new JLabel(" "); // keep a blank space so layout doesn't collapse
+        errorLabel = new JLabel(" "); // keep a blank space so layout doesn't collapse
         errorLabel.setForeground(Color.RED);
         errorLabel.setFont(new Font("Arial", Font.PLAIN, 12));
 
@@ -82,15 +83,43 @@ public class InputPanel extends PanelDesign {
         // Add DocumentListener to the area
         inputArea.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
             private void updateStats() {
-                String text = inputArea.getText();
-                statistics.BasicAlgorithm.ParseResult result = statistics.BasicAlgorithm.parseInputWithInvalids(text);
-                double[] data = result.numbers;
+                try {
+                    String text = inputArea.getText();
+                    statistics.BasicAlgorithm.ParseResult result = statistics.BasicAlgorithm.parseInputWithInvalids(text);
+                    double[] data = result.numbers;
 
-                boolean hasInvalid = !result.invalids.isEmpty();
+                    if (!result.invalids.isEmpty()) {
+                        throw new InvalidInputException("Invalid input: " + String.join(", ", result.invalids));
+                    }
 
-                if (hasInvalid) {
-                    errorLabel.setText("Invalid input: " + String.join(", ", result.invalids));
-                    // Set panels to 0 or N/A, or do nothing
+                    if (data.length > 0) {
+                        double minValue = Arrays.stream(data).min().orElse(data[0]);
+                        for (double d : data) {
+                            if (Math.abs(d - minValue) > 100) {
+                                throw new InvalidInputException("All values must be within 100 of the lowest value (" + minValue + ")");
+                            }
+                        }
+                    }
+
+                    double maxAllowed = Integer.MAX_VALUE;
+                    for (double d : data) {
+                        if (d < 0 || d > maxAllowed) {
+                            throw new InvalidInputException("Invalid input: reached integer limit");
+                        }
+                    }
+
+                    // Only update panels if all input is valid
+                    errorLabel.setText("");
+                    sampleSizePanel.setSampleSize(data);
+                    totalSumPanel.setTotalSum(data);
+                    minMaxPanel.setMinMax(data);
+                    sampleRangePanel.setSampleRange(data);
+                    centralTendencyPanel.setCentralTendency(data);
+                    variabilityPanel.setVariability(data);
+                    graphPanel.setData(data);
+
+                } catch (InvalidInputException ex) {
+                    errorLabel.setText(ex.getMessage());
                     sampleSizePanel.setSampleSize(new double[0]);
                     totalSumPanel.setTotalSum(new double[0]);
                     minMaxPanel.setMinMax(new double[0]);
@@ -98,21 +127,7 @@ public class InputPanel extends PanelDesign {
                     centralTendencyPanel.setCentralTendency(new double[0]);
                     variabilityPanel.setVariability(new double[0]);
                     graphPanel.clear();
-                    
-                    return; 
-                } else {
-                    errorLabel.setText("");
                 }
-
-                // Only update panels if all input is valid
-                sampleSizePanel.setSampleSize(data);
-                totalSumPanel.setTotalSum(data);
-                minMaxPanel.setMinMax(data);
-                sampleRangePanel.setSampleRange(data);
-                centralTendencyPanel.setCentralTendency(data);
-                variabilityPanel.setVariability(data);
-                graphPanel.setData(data);
-                
             }
             public void insertUpdate(javax.swing.event.DocumentEvent e) { updateStats(); }
             public void removeUpdate(javax.swing.event.DocumentEvent e) { updateStats(); }
@@ -124,4 +139,6 @@ public class InputPanel extends PanelDesign {
     public String getInput() {
         return inputArea.getText();
     }
+
+    
 }
