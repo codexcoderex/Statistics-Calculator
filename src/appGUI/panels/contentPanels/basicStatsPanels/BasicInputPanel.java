@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 
-public class InputPanel extends PanelDesign {
+public class BasicInputPanel extends PanelDesign {
 
     private JTextArea inputArea;
 
@@ -19,7 +19,7 @@ public class InputPanel extends PanelDesign {
     private JLabel errorLabel;
 
 
-    public InputPanel(
+    public BasicInputPanel(
         SampleSizePanel sampleSizePanel,
         TotalSumPanel totalSumPanel,
         MinMaxPanel minMaxPanel,
@@ -41,7 +41,7 @@ public class InputPanel extends PanelDesign {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setOpaque(false);
 
-        add(Box.createVerticalGlue());
+        add(Box.createVerticalStrut(10)); // 15 pixels of space
 
         JPanel labelPanel = new JPanel();
         labelPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 35, 0));
@@ -58,8 +58,8 @@ public class InputPanel extends PanelDesign {
         inputArea.setLineWrap(true);
         inputArea.setWrapStyleWord(true);
         inputArea.setFont(new Font("Arial", Font.PLAIN, 14));
-        inputArea.setMaximumSize(new Dimension(600, 140));
-        inputArea.setPreferredSize(new Dimension(600, 140));
+        inputArea.setMaximumSize(new Dimension(1250, 140));
+        inputArea.setPreferredSize(new Dimension(1250, 140));
         inputArea.setAlignmentX(Component.CENTER_ALIGNMENT);
         inputArea.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2));
         add(inputArea);
@@ -78,7 +78,7 @@ public class InputPanel extends PanelDesign {
 
         add(Box.createVerticalGlue());
 
-        setPreferredSize(new Dimension(670, 200));
+        setPreferredSize(new Dimension(1270, 200));
 
         // Add DocumentListener to the area
         inputArea.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {

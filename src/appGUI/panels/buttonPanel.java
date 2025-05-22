@@ -10,39 +10,54 @@ public class buttonPanel extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS)); // Vertical layout for buttons
 
         // Load icons (replace with your actual icon file paths)
-        ImageIcon rawBasicStatsIcon = scaleIcon("src/icons/basicICON.png", 80, 80);
-        ImageIcon paddedBasicStatsIcon = padIconCenter(rawBasicStatsIcon, 100, 100); // centered
-        ImageIcon basicStatsRolloverIcon = scaleIcon("src/icons/basicICON.png", 100, 100);
+        ImageIcon rawBasicStatsIcon = scaleIcon("src/icons/basicICON.png", 100, 100);
+        ImageIcon paddedBasicStatsIcon = padIconCenter(rawBasicStatsIcon, 120, 120); // centered
+        ImageIcon basicStatsRolloverIcon = scaleIcon("src/icons/basicICON.png", 120, 120);
+        ImageIcon rawtestStatsIcon = scaleIcon("src/icons/testsICON.png", 100, 100);
+        ImageIcon paddedtestStatsIcon = padIconCenter(rawtestStatsIcon, 120, 120);
+        ImageIcon testStatsRolloverIcon = scaleIcon("src/icons/testsICON.png", 120, 120);
         
         // Create buttons with icons only (no text)
         JButton basicStatsButton = new JButton(paddedBasicStatsIcon);
         basicStatsButton.setRolloverIcon(basicStatsRolloverIcon);
-        
+        JButton testStatsButton = new JButton(paddedtestStatsIcon);
+        testStatsButton.setRolloverIcon(testStatsRolloverIcon);
 
         // Set same size for all buttons
-        Dimension buttonSize = new Dimension(100, 100);
+        Dimension buttonSize = new Dimension(150, 150);
         basicStatsButton.setMaximumSize(buttonSize);
         basicStatsButton.setMinimumSize(buttonSize);
         basicStatsButton.setPreferredSize(buttonSize);
+        testStatsButton.setMaximumSize(buttonSize);
+        testStatsButton.setMinimumSize(buttonSize);
+        testStatsButton.setPreferredSize(buttonSize);
 
         // Remove button borders and backgrounds for a flat icon look
         basicStatsButton.setBorderPainted(false);
         basicStatsButton.setFocusPainted(false);
         basicStatsButton.setContentAreaFilled(false);
+        testStatsButton.setBorderPainted(false);
+        testStatsButton.setFocusPainted(false);
+        testStatsButton.setContentAreaFilled(false);
 
         // Center buttons horizontally
         basicStatsButton.setHorizontalAlignment(SwingConstants.CENTER);
         basicStatsButton.setVerticalAlignment(SwingConstants.CENTER);
         basicStatsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        testStatsButton.setHorizontalAlignment(SwingConstants.CENTER);
+        testStatsButton.setVerticalAlignment(SwingConstants.CENTER);
+        testStatsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
        
         add(Box.createVerticalGlue());
         add(basicStatsButton);
+        add(Box.createVerticalStrut(10)); // Space between buttons
+        add(testStatsButton);
         add(Box.createVerticalGlue());
 
         // Button actions
         basicStatsButton.addActionListener(e -> cardLayout.show(contentPanel, "basicStats"));
-       
+        testStatsButton.addActionListener(e -> cardLayout.show(contentPanel, "testStats"));
     }
 
     // Helper method to scale an icon

@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import appGUI.panels.buttonPanel;
 import appGUI.panels.contentPanels.cardPanels.BasicStatsPanel;
+import appGUI.panels.contentPanels.cardPanels.TestStatsPanel;
 
 public class MainGUI extends JPanel {
 
@@ -20,6 +21,7 @@ public class MainGUI extends JPanel {
         rightPanel = new JPanel(cardLayout);
 
         rightPanel.add(new BasicStatsPanel(), "basicStats");
+        rightPanel.add(new TestStatsPanel(), "testStats");
 
         leftPanel = new buttonPanel(rightPanel, cardLayout);
     }
