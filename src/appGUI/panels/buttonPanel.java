@@ -1,5 +1,8 @@
 package appGUI.panels;
 import javax.swing.*;
+
+import appGUI.panels.contentPanels.cardPanels.TestStatsPanel;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -57,7 +60,20 @@ public class buttonPanel extends JPanel {
 
         // Button actions
         basicStatsButton.addActionListener(e -> cardLayout.show(contentPanel, "basicStats"));
-        testStatsButton.addActionListener(e -> cardLayout.show(contentPanel, "testStats"));
+        testStatsButton.addActionListener(e -> {
+            // Create a dialog with the main window as parent
+            JDialog dialog = new JDialog(SwingUtilities.getWindowAncestor(this), "Statistical Tests", Dialog.ModalityType.APPLICATION_MODAL);
+            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+            // Add your TestStatsPanel to the dialog
+            dialog.setContentPane(new TestStatsPanel());
+
+            // Set size and center on screen
+            dialog.setSize(450, 400); // Adjust as needed
+            dialog.setLocationRelativeTo(SwingUtilities.getWindowAncestor(this));
+
+            dialog.setVisible(true);
+        });
     }
 
     // Helper method to scale an icon

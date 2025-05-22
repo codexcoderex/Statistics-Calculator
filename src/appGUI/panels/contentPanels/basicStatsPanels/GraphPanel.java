@@ -28,7 +28,7 @@ public class GraphPanel extends PanelDesign {
         int leftPad = 40, rightPad = 40, topPad = 40, bottomPad = 40;
 
         // Histogram bins
-        double binSize = 5.0;
+        double binSize = 15.0;
         double min = Math.floor(Arrays.stream(rawData).min().orElse(0) / binSize) * binSize;
         double max = Math.ceil(Arrays.stream(rawData).max().orElse(0) / binSize) * binSize;
         if (max == min) max = min + binSize;
@@ -73,7 +73,7 @@ public class GraphPanel extends PanelDesign {
             int y = height - bottomPad - barHeight;
 
             // Draw bar
-            g2.setColor(new Color(0x757575));
+            g2.setColor(Color.RED);
             g2.fillRect(x, y, barWidth, barHeight);
 
             // Draw count

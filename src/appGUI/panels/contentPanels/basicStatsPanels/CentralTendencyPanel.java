@@ -59,4 +59,8 @@ public class CentralTendencyPanel extends JPanel {
         labelDataArr[2].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateMode(data)));
         labelDataArr[3].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateGeometricMean(data)));
     }
+
+    public double getMean(double[] data) {
+        return statistics.BasicAlgorithm.calculateMean(data);
+    }
 }

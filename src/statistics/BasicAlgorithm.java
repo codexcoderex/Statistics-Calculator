@@ -249,4 +249,13 @@ public class BasicAlgorithm {
             return Double.NaN;
         }
     }
+
+    public static double getCriticalTValue(double confidence, int df) {
+        if (df <= 0) return Double.NaN;
+        if (confidence == 0.95) {
+            if (df <= 30) return 2.045; // simplified lookup
+            return 1.96;
+        }
+        return 1.96; // fallback
+    }
 }

@@ -95,8 +95,8 @@ public class BasicInputPanel extends PanelDesign {
                     if (data.length > 0) {
                         double minValue = Arrays.stream(data).min().orElse(data[0]);
                         for (double d : data) {
-                            if (Math.abs(d - minValue) > 100) {
-                                throw new InvalidInputException("All values must be within 100 of the lowest value (" + minValue + ")");
+                            if (Math.abs(d - minValue) > 500) {
+                                throw new InvalidInputException("All values must be within 500 of the lowest value (" + minValue + ")");
                             }
                         }
                     }
