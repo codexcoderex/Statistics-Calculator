@@ -11,19 +11,12 @@ The pinnacle of real-time basic statistical calculations software -
 Whether you're a student, researcher, or just someone who needs stats fast, SigmaStats has your back with all the essentials in one clean package.
 
 ## 📊 Features
-|-----------|
-|Sample Size|
-|-----------|
-|Total Sum of Dataset|
-|-----------|
-|Minimum & Maximum of Dataset|
-|-----------|
-|Range      |
-|-----------|
-|Mean       |
-|-----------|
+|Sample Size|Geometric Mean| 
+|Total Sum of Dataset|Population Variance|
+|Minimum & Maximum of Dataset|Sample Variance|
+|Range      |Population Standard Deviation|
+|Mean       |Sample Standard Deviation|
 |Median     |Mode|
-|-----------|
 
 🧪 Tests Included:
 Standard Error
