@@ -63,11 +63,10 @@ public class BasicStatsPanel extends JPanel {
         chartAndInput.add(lrow2);
 
         // The main content panel of statistics
-        JPanel basicStats = new JPanel();
+       JPanel basicStats = new JPanel();
         basicStats.setLayout(new BoxLayout(basicStats, BoxLayout.Y_AXIS));
         basicStats.setOpaque(false);
         basicStats.setPreferredSize(new Dimension(480, 0));
- 
 
         JPanel row1 = new JPanel(new FlowLayout(FlowLayout.RIGHT, 20, 40));
         row1.setOpaque(false);

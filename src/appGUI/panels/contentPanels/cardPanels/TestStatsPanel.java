@@ -11,7 +11,6 @@ public class TestStatsPanel extends JPanel {
         setLayout(new BorderLayout());
 
        
-
         // Create input and output panels
         TestsOutputPanel outputPanel = new TestsOutputPanel();
         TestsInputPanel inputPanel = new TestsInputPanel(outputPanel);

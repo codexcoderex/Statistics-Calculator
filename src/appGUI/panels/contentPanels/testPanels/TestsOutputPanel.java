@@ -32,9 +32,9 @@ public class TestsOutputPanel extends JPanel {
         JLabel dataLabel = new JLabel("0");
 
         if (i == LABELS.length - 1) {
-            dataLabel.setFont(new Font("Arial", Font.BOLD, 36)); // Smaller font for CI
+            dataLabel.setFont(new Font("Arial", Font.BOLD, 26)); // Smaller font for CI
         } else {
-            dataLabel.setFont(new Font("Arial", Font.BOLD, 90)); // Default font
+            dataLabel.setFont(new Font("Arial", Font.BOLD, 50)); // Default font
         }
         dataLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
