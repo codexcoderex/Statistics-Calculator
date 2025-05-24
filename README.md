@@ -1,10 +1,17 @@
 ## SigmaStats
 
-Cramming your research statistical data?\n
-Stuck double-checking numbers for a paper?\n
-Fret not!\n
+Cramming your research statistical data?
 
-Gone are the days of juggling 10 online statistical calculator tabs and the ever-confusing, head-scratching ordeal of wrestling with dedicated statistical software just to crunch a few variables!\n
+
+Stuck double-checking numbers for a paper?
+
+
+Fret not!
+
+
+Gone are the days of juggling 10 online statistical calculator tabs and the ever-confusing, head-scratching ordeal of wrestling with dedicated statistical software just to crunch a few variables!
+
+
 **Introducing SigmaStats!**
 
 The pinnacle of real-time basic statistical calculations software - 
@@ -28,7 +35,13 @@ Whether you're a student, researcher, or just someone who needs stats fast, Sigm
 |Cohen's d|Confidence Interval|
 
 
-❓Instructions: \n
-Just input your dataset and boom! \n
-RESULT ON THE SPOT! \n
-No more hassle. No more noise. Just SigmaStats.\n
+❓Instructions: 
+
+
+Just input your dataset and boom! 
+
+
+RESULT ON THE SPOT! 
+
+
+No more hassle. No more noise. Just SigmaStats.
