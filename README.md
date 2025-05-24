@@ -12,6 +12,7 @@ Whether you're a student, researcher, or just someone who needs stats fast, Sigm
 
 ## 📊 Features
 |Sample Size|Geometric Mean| 
+|:---:|:---:|
 |Total Sum of Dataset|Population Variance|
 |Minimum & Maximum of Dataset|Sample Variance|
 |Range      |Population Standard Deviation|
