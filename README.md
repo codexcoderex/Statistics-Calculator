@@ -6,7 +6,7 @@ Gone are the days of juggling 10 online statistical calculator tabs and the ever
 Introducing SigmaStats!
 
 The pinnacle of real-time basic statistical calculations software - 
-##SIMPLE. SLEEK. SWIFT.
+## SIMPLE. SLEEK. SWIFT.
 
 Whether you're a student, researcher, or just someone who needs stats fast, SigmaStats has your back with all the essentials in one clean package.
 
@@ -24,7 +24,7 @@ Sample Variance
 Population Standard Deviation
 Sample Standard Deviation
 
-🧪 Tests Included
+🧪 Tests Included:
 Standard Error
 T-Test
 Z-Score
@@ -32,7 +32,7 @@ Z-Test
 Cohen's d
 Confidence Interval
 
-❓Instructions
+❓Instructions:
 Just input your dataset and boom! 
 RESULT ON THE SPOT!
 No more hassle. No more noise. Just SigmaStats.
