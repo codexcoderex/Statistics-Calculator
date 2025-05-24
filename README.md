@@ -1,18 +1,38 @@
-## Getting Started
+## SigmaStats
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Cramming your research statistical data? Stuck double-checking numbers for a paper?
+Fret not! 
+Gone are the days of juggling 10 online statistical calculator tabs and the ever-confusing, head-scratching ordeal of wrestling with dedicated statistical software just to crunch a few variables!
+Introducing SigmaStats!
 
-## Folder Structure
+The pinnacle of real-time basic statistical calculations software - 
+##SIMPLE. SLEEK. SWIFT.
 
-The workspace contains two folders by default, where:
+Whether you're a student, researcher, or just someone who needs stats fast, SigmaStats has your back with all the essentials in one clean package.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 📊 Features
+Sample Size
+Total Sum of Dataset
+Minimum & Maximum of Dataset
+Range
+Mean
+Median
+Mode
+Geometric Mean
+Population Variance
+Sample Variance
+Population Standard Deviation
+Sample Standard Deviation
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+🧪 Tests Included
+Standard Error
+T-Test
+Z-Score
+Z-Test
+Cohen's d
+Confidence Interval
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+❓Instructions
+Just input your dataset and boom! 
+RESULT ON THE SPOT!
+No more hassle. No more noise. Just SigmaStats.
