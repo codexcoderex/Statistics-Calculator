@@ -22,7 +22,7 @@ public class MainFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         boolean isCompact = screenSize.width < 1920; 
         if(isCompact){
-            frame.setSize(1366,700); // Set the size of the window
+            frame.setSize(1366,900); // Set the size of the window
         } else {
             frame.setSize(1920,900); // Set the size of the window
         }
