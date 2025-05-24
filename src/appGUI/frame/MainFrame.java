@@ -1,5 +1,5 @@
 package appGUI.frame;
-
+import java.awt.*;
 import javax.swing.*;
 
 public class MainFrame {
@@ -19,7 +19,14 @@ public class MainFrame {
         
 
         // Set frame size and make it visible
-        frame.setSize(1920,900); // Set the size of the window
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        boolean isCompact = screenSize.width < 1920; 
+        if(isCompact){
+            frame.setSize(1366,900); // Set the size of the window
+        } else {
+            frame.setSize(1920,900); // Set the size of the window
+        }
+
         frame.setLocationRelativeTo(null); // Center the window, it is relative to the screen
         frame.setVisible(true);
         frame.setResizable(false);

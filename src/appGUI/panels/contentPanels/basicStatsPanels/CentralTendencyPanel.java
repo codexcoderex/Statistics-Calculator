@@ -47,20 +47,32 @@ public class CentralTendencyPanel extends JPanel {
 
     // Call this to update the stats
     public void setCentralTendency(double[] data) {
-        if (data == null || data.length == 0) {
-            labelDataArr[0].setText("N/A");
-            labelDataArr[1].setText("N/A");
-            labelDataArr[2].setText("N/A");
-            labelDataArr[3].setText("N/A");
-            return;
+       if (data == null || data.length == 0) {
+        for (JLabel label : labelDataArr) {
+            label.setText("N/A");
+            label.setFont(new Font("Arial", Font.BOLD, 22)); // Reset to default font size
         }
-        labelDataArr[0].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateMean(data)));
-        labelDataArr[1].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateMedian(data)));
-        labelDataArr[2].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateMode(data)));
-        labelDataArr[3].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateGeometricMean(data)));
-    }
+        return;
+        }
 
-    public double getMean(double[] data) {
-        return statistics.BasicAlgorithm.calculateMean(data);
+        double[] results = {
+            statistics.BasicAlgorithm.calculateMean(data),
+            statistics.BasicAlgorithm.calculateMedian(data),
+            statistics.BasicAlgorithm.calculateMode(data),
+            statistics.BasicAlgorithm.calculateGeometricMean(data)
+        };
+
+        for (int i = 0; i < results.length; i++) {
+            double value = results[i];
+            String formatted = String.format("%.2f", value);
+            labelDataArr[i].setText(formatted);
+
+            if (Math.abs(value) > 99999) {
+                labelDataArr[i].setFont(new Font("Arial", Font.BOLD, 16)); // Shrink font
+            } else {
+                labelDataArr[i].setFont(new Font("Arial", Font.BOLD, 22)); // Default font
+            }
+        }
+
     }
 }

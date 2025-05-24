@@ -7,13 +7,18 @@ import java.util.Arrays;
 
 public class GraphPanel extends PanelDesign {
     private double[] rawData = new double[0];
-    private static final int MAX_WIDTH = 1270;
+    private static int MAX_WIDTH = 1250;
     private static final int MAX_HEIGHT = 410;
     private static final int MIN_BAR_WIDTH = 20;
     private static final int BAR_SPACING = 4;
 
     public GraphPanel() {
         setOpaque(false);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        boolean isCompact = screenSize.width < 1920;
+        if(isCompact) {
+            MAX_WIDTH = 752;
+        }
         setPreferredSize(new Dimension(MAX_WIDTH, MAX_HEIGHT));
     }
 
@@ -28,7 +33,15 @@ public class GraphPanel extends PanelDesign {
         int leftPad = 40, rightPad = 40, topPad = 40, bottomPad = 40;
 
         // Histogram bins
-        double binSize = 15.0;
+        double binSize;
+        
+        if (statistics.BasicAlgorithm.calculateRange(rawData) <= 100) {
+            binSize = 5.0;
+        }
+        else {
+            binSize = Math.ceil(statistics.BasicAlgorithm.calculateRange(rawData) / 10);
+        }
+
         double min = Math.floor(Arrays.stream(rawData).min().orElse(0) / binSize) * binSize;
         double max = Math.ceil(Arrays.stream(rawData).max().orElse(0) / binSize) * binSize;
         if (max == min) max = min + binSize;

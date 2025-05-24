@@ -3,7 +3,6 @@ import appGUI.panels.PanelDesign;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
 
 public class BasicInputPanel extends PanelDesign {
 
@@ -36,7 +35,15 @@ public class BasicInputPanel extends PanelDesign {
         this.sampleRangePanel = sampleRangePanel;
         this.centralTendencyPanel = centralTendencyPanel;
         this.variabilityPanel = variabilityPanel;
-   
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        boolean isCompact = screenSize.width < 1920;
+        int inputWidth;
+        if(isCompact) {
+            inputWidth = 750;
+        } else {
+            inputWidth = 1250;
+        }
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setOpaque(false);
@@ -58,7 +65,7 @@ public class BasicInputPanel extends PanelDesign {
         inputArea.setLineWrap(true);
         inputArea.setWrapStyleWord(true);
         inputArea.setFont(new Font("Arial", Font.PLAIN, 14));
-        inputArea.setMaximumSize(new Dimension(1250, 140));
+        inputArea.setMaximumSize(new Dimension(inputWidth - 60, 140));
         inputArea.setPreferredSize(new Dimension(1250, 140));
         inputArea.setAlignmentX(Component.CENTER_ALIGNMENT);
         inputArea.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2));
@@ -78,7 +85,7 @@ public class BasicInputPanel extends PanelDesign {
 
         add(Box.createVerticalGlue());
 
-        setPreferredSize(new Dimension(1270, 200));
+        setPreferredSize(new Dimension(inputWidth, 200));
 
         // Add DocumentListener to the area
         inputArea.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
@@ -89,22 +96,13 @@ public class BasicInputPanel extends PanelDesign {
                     double[] data = result.numbers;
 
                     if (!result.invalids.isEmpty()) {
-                        throw new InvalidInputException("Invalid input: " + String.join(", ", result.invalids));
-                    }
-
-                    if (data.length > 0) {
-                        double minValue = Arrays.stream(data).min().orElse(data[0]);
-                        for (double d : data) {
-                            if (Math.abs(d - minValue) > 500) {
-                                throw new InvalidInputException("All values must be within 500 of the lowest value (" + minValue + ")");
-                            }
-                        }
+                        throw new Exception("Invalid input: " + String.join(", ", result.invalids));
                     }
 
                     double maxAllowed = Integer.MAX_VALUE;
                     for (double d : data) {
                         if (d < 0 || d > maxAllowed) {
-                            throw new InvalidInputException("Invalid input: reached integer limit");
+                            throw new Exception("Invalid input: reached integer limit");
                         }
                     }
 
@@ -118,7 +116,7 @@ public class BasicInputPanel extends PanelDesign {
                     variabilityPanel.setVariability(data);
                     graphPanel.setData(data);
 
-                } catch (InvalidInputException ex) {
+                } catch (Exception ex) {
                     errorLabel.setText(ex.getMessage());
                     sampleSizePanel.setSampleSize(new double[0]);
                     totalSumPanel.setTotalSum(new double[0]);

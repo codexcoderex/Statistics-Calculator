@@ -16,6 +16,7 @@ public class MainGUI extends JPanel {
         setupLayout();
     }
 
+    // In MainGUI.java
     public void initializeComponents() {
         cardLayout = new CardLayout();
         rightPanel = new JPanel(cardLayout);
@@ -23,7 +24,7 @@ public class MainGUI extends JPanel {
         rightPanel.add(new BasicStatsPanel(), "basicStats");
         rightPanel.add(new TestStatsPanel(), "testStats");
 
-        leftPanel = new buttonPanel(rightPanel, cardLayout);
+        leftPanel = new buttonPanel(rightPanel, cardLayout );
     }
 
     public void setupLayout() {

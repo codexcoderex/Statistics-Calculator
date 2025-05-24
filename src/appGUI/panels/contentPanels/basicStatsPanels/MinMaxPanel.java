@@ -9,7 +9,7 @@ public class MinMaxPanel extends JPanel {
     private JLabel maxLabelData;
 
     public MinMaxPanel() {
-        setLayout(new GridLayout(2, 0, 10, 10));
+        setLayout(new GridLayout(2, 1, 10, 10));
         setOpaque(false);
         setPreferredSize(new Dimension(220, 200));
 
@@ -19,26 +19,22 @@ public class MinMaxPanel extends JPanel {
         for (int i = 0; i < 2; i++) {
             PanelDesign panel = new PanelDesign();
             panel.setBackground(new Color(0xE3F2FD));
-            panel.setLayout(new GridBagLayout());
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            panel.setOpaque(false);
 
             JLabel dataLabel = new JLabel("0");
             dataLabel.setFont(new Font("Arial", Font.BOLD, 30));
-            dataLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            dataLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
             JLabel label = new JLabel(labels[i]);
             label.setFont(new Font("Arial", Font.BOLD, 15));
-            label.setHorizontalAlignment(SwingConstants.CENTER);
+            label.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-            GridBagConstraints gbc = new GridBagConstraints();
-            gbc.gridx = 0;
-            gbc.gridy = 0;
-            gbc.weightx = 1.0;
-            gbc.anchor = GridBagConstraints.CENTER;
-            gbc.fill = GridBagConstraints.HORIZONTAL;
-            panel.add(dataLabel, gbc);
-
-            gbc.gridy = 1;
-            panel.add(label, gbc);
+            panel.add(Box.createVerticalGlue());
+            panel.add(dataLabel);
+            panel.add(Box.createVerticalStrut(4));
+            panel.add(label);
+            panel.add(Box.createVerticalGlue());
 
             add(panel);
             dataLabels[i] = dataLabel;
@@ -50,8 +46,8 @@ public class MinMaxPanel extends JPanel {
 
     public void setMinMax(double[] data) {
         if (data == null || data.length == 0) {
-            minLabelData.setText("N/A");
-            maxLabelData.setText("N/A");
+            minLabelData.setText("NaN");
+            maxLabelData.setText("NaN");
             return;
         }
         double min = statistics.BasicAlgorithm.calculateMin(data);

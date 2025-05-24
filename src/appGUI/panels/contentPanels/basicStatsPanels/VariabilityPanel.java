@@ -46,16 +46,32 @@ public class VariabilityPanel extends JPanel {
 
     public void setVariability(double[] data) {
         if (data == null || data.length == 0) {
-            labelDataArr[0].setText("N/A");
-            labelDataArr[1].setText("N/A");
-            labelDataArr[2].setText("N/A");
-            labelDataArr[3].setText("N/A");
+            for (JLabel label : labelDataArr) {
+                label.setText("NaN");
+                label.setFont(new Font("Arial", Font.BOLD, 22)); // Reset to default size
+            }
             return;
         }
-        labelDataArr[0].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateVariance(data)));
-        labelDataArr[1].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateSampleVariance(data)));
-        labelDataArr[2].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateStandardDeviation(data)));
-        labelDataArr[3].setText(String.format("%.2f", statistics.BasicAlgorithm.calculateSampleStandardDeviation(data)));
+
+        double[] results = {
+            statistics.BasicAlgorithm.calculateVariance(data),
+            statistics.BasicAlgorithm.calculateSampleVariance(data),
+            statistics.BasicAlgorithm.calculateStandardDeviation(data),
+            statistics.BasicAlgorithm.calculateSampleStandardDeviation(data)
+        };
+
+        for (int i = 0; i < results.length; i++) {
+            double value = results[i];
+            String formatted = String.format("%.2f", value);
+            labelDataArr[i].setText(formatted);
+
+            // Shrink font if value > 99999
+            if (Math.abs(value) > 99999) {
+                labelDataArr[i].setFont(new Font("Arial", Font.BOLD, 16)); // Smaller font size
+            } else {
+                labelDataArr[i].setFont(new Font("Arial", Font.BOLD, 22)); // Default font size
+            }
+        }
     }
 
 }

@@ -30,7 +30,7 @@ public class SampleRangePanel extends PanelDesign {
 
     public void setSampleRange(double[] data) {
          if (data == null || data.length == 0) {
-            labelData.setText("N/A");
+            labelData.setText("NaN");
             return;
         }
         double range = statistics.BasicAlgorithm.calculateRange(data);
