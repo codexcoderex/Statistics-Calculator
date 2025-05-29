@@ -28,6 +28,8 @@ Whether you're a student, researcher, or just someone who needs stats fast, Sigm
 |Mean       |Sample Standard Deviation|
 |Median     |Mode|
 
+![Basic Statistics Screenshot]((https://github.com/codexcoderex/Statistics-Calculator/blob/main/images/basicStats.jpg))
+
 🧪 Tests Included:
 |Standard Error|T-Test| 
 |:---:|:---:|
