@@ -20,21 +20,20 @@ The pinnacle of real-time basic statistical calculations software -
 Whether you're a student, researcher, or just someone who needs stats fast, SigmaStats has your back with all the essentials in one clean package.
 
 ## 📊 Features
-|Sample Size|Geometric Mean| 
-|:---:|:---:|
-|Total Sum of Dataset|Population Variance|
-|Minimum & Maximum of Dataset|Sample Variance|
-|Range      |Population Standard Deviation|
-|Mean       |Sample Standard Deviation|
-|Median     |Mode|
+|Sample Size|Geometric Mean|Range    |Population Standard Deviation|
+|:---:|:---:||:---:|:---:|
+|Total Sum of Dataset|Population Variance|Mean       |Sample Standard Deviation|
+|Minimum & Maximum of Dataset|Sample Variance|Median     |Mode|
 
-![alt text](https://github.com/codexcoderex/Statistics-Calculator/blob/main/images/basicStats.jpg "Basic Statistics Screenshot")
-
-🧪 Tests Included:
+## 🧪 Tests Included:
 |Standard Error|T-Test| 
 |:---:|:---:|
 |Z-Score|Z-Test|
 |Cohen's d|Confidence Interval|
+
+## Images
+![alt text](https://github.com/codexcoderex/Statistics-Calculator/blob/main/images/basicStats.jpg "Basic Statistics Screenshot")
+![alt text](https://github.com/codexcoderex/Statistics-Calculator/blob/main/images/testStats.jpg "Tests Statistics Screenshot")
 
 
 ❓Instructions: 
